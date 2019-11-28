@@ -1,4 +1,4 @@
-Arbeit, Arbeit, 1, 2, 3
+﻿Arbeit, Arbeit, 1, 2, 3
 Klage nicht, Arbeit macht frei
 Leidgenosse, dir zum Gruß
 Dank ich, dass ich leben muss
@@ -28,4 +28,4 @@ Lasst Aktivist und Bausoldat
 Mein Angesicht in Marmor hauen
 Freundschaft / Gelbes Gift
 Freundschaft / Gelbes Gift
-Bis dass das Kind den Vater trifft
+Bis dass das Kind den Vater trifft 
