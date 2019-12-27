@@ -11,34 +11,35 @@ namespace GitHubAutomation.Tests
 {
     public class GeneralConfig : Logger
     {
-        static private ILog Log = LogManager.GetLogger(typeof(Logger));
+        private static readonly NLog.Logger _log_ = NLog.LogManager.GetCurrentClassLogger();
 
         protected IWebDriver Driver;
 
         [SetUp]
         public void SetDriver()
-        {
+        {            
             Driver = DriverSingleton.GetDriver();
-            Driver.Navigate().GoToUrl("https://brest.minsktoys.by");
+            Driver.Navigate().GoToUrl("https://mogilev.minsktoys.by/");
+            Driver.Manage().Timeouts().ImplicitWait = new TimeSpan(0, 0, 5);
             Driver.Manage().Window.Maximize();
         }
 
         protected void TakeScreenshotWhenTestFailed(Action action)
         {
-            try
-            {
+            //try
+            //{
                 action();
-            }
-            catch
-            {
-                var screenshotFolder = AppDomain.CurrentDomain.BaseDirectory + @"\screenshots";
-                Directory.CreateDirectory(screenshotFolder);
-                var screenshot = Driver.TakeScreenshot();
-                screenshot.SaveAsFile(screenshotFolder + @"\screenshot"
-                                                       + DateTime.Now.ToString("yy-MM-dd_hh-mm-ss") + ".png",
-                                                       ScreenshotImageFormat.Png);
-                Log.Error("Test_Failure");
-            }
+            //}
+            //catch
+            //{
+            //    var screenshotFolder = AppDomain.CurrentDomain.BaseDirectory + @"\screenshots";
+            //    Directory.CreateDirectory(screenshotFolder);
+            //    var screenshot = Driver.TakeScreenshot();
+            //    screenshot.SaveAsFile(screenshotFolder + @"\screenshot"
+            //                                           + DateTime.Now.ToString("yy-MM-dd_hh-mm-ss") + ".png",
+            //                                           ScreenshotImageFormat.Png);
+            //    _log_.Error("Test_Failure");
+            //}
         }
 
         [TearDown]
